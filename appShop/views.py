@@ -7,3 +7,5 @@ def index(request):
     Productos = Product.objects.all()  
     context = {"Productos":Productos}
     return render(request, 'appShop/index.html', context)
+
+

@@ -39,20 +39,41 @@
         </div>
       </nav>    
       </div>
+
+
       <div class="container-fluid">
-        <div class="col">
-          <div class="row" id="product-container">
-            {% for producto in Productos%}
-              <div class="col-md-4 mb-4">                
-                  <div class="gallery-item">
-                    <img src="{{producto.image.url}}" alt="{{producto.products}}" class="img-fluid gallery-img uniform-img" data-description="{{producto.description}}">
-                    <h5>{{producto.id_category | capfirst }},</h5>
-                    <h2>{{producto.products | title}}</h2>
-                    <h3>{{producto.price}}</h3>
+        <div class="row">
+          <div class="col-md-2">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">Filtrar por Categoría</h5>
+                    <form id="filter-form">
+                      {% for producto in Productos%}                      
+                        <input type="checkbox" id="{{producto.id_category}}" name="{{producto.id_category}}" value="{{producto.id_category}}">
+                        <label for="{{producto.id_category}}">{{producto.id_category}}</label><br>
+                      {% endfor %}
+                    </form>
+                    <button id="apply-filter" class="btn btn-primary mt-3">Aplicar Filtro</button>
                   </div>
               </div>
-            {% endfor %}
           </div>
+          <div class="col">
+            <div class="row" id="product-container">
+              {% for producto in Productos%}
+                <div class="col-md-4 mb-4">                
+                    <div class="gallery-item">
+                      <img src="{{producto.image.url}}" alt="{{producto.products}}" class="img-fluid gallery-img uniform-img" data-description="{{producto.description}}">
+                      <h5>{{producto.id_category | capfirst }}</h5>
+                      <h2>{{producto.products | title}}</h2>
+                      <h3>{{producto.price}}</h3>
+                    </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>        
       </div>
 </body>
 </html>
+
+
