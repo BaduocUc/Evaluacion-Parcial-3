@@ -1,7 +1,7 @@
 <header>
     <h1>Productos para Mascotas</h1>
 </header>
-<div class="container-fluid pt-3">
+<div class="container-lg pt-3">
     <div class="row">
         <div class="col-md-2">
             <div class="card" style="width: 18rem;">
@@ -10,30 +10,49 @@
                     <form id="filter-form">
                         {% for categoria in Categorias %}
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="categoria" value="{{ categoria.category }}" id="categoria-{{ categoria.id_category }}" {% if categoria.category in categorias_seleccionadas %}checked{% endif %}>
+                                <input class="form-check-input" type="checkbox" name="categoria" value="{{ categoria.category }}" id="categoria-{{ categoria.id_category }}">
                                 <label class="form-check-label" for="categoria-{{ categoria.id_category }}">
                                     {{ categoria.category }}
                                 </label>
                             </div>
                         {% endfor %}
-                        <button type="submit" class="btn btn-primary mt-3">Aplicar Filtro</button>
+                        <button id="apply-filter" class="btn btn-primary mt-3">Aplicar Filtro</button>
                     </form>
                 </div>
             </div>
         </div>
         <div class="col">
             <div class="row" id="product-container">
-                {% for producto in Productos %}
-                    <div class="col-md-4 mb-4">
-                        <div class="gallery-item">
-                            <img src="{{ producto.image.url }}" alt="{{ producto.products }}" class="img-fluid gallery-img uniform-img" data-description="{{ producto.description }}">
-                            <h5>{{ producto.id_category.category | capfirst }}</h5>
-                            <h2>{{ producto.products | title }}</h2>
-                            <h3>{{ producto.price }}</h3>
-                        </div>
-                    </div>
-                {% endfor %}
+                {% include 'partials/productos.html' %}
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const filterForm = document.getElementById('filter-form');
+        const applyFilterButton = document.getElementById('apply-filter');
+
+        applyFilterButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            const formData = new FormData(filterForm);
+            const categories = [];
+            formData.forEach((value, key) => {
+                categories.push(value);
+            });
+
+            fetch('/tienda/?categoria=' + categories.join(','), {
+                method: 'GET',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('product-container').innerHTML = html;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+</script>
