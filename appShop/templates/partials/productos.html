@@ -1,0 +1,10 @@
+{% for producto in Productos %}
+    <div class="col-md-4 mb-4">
+        <div class="gallery-item">
+            <img src="{{ producto.image.url }}" alt="{{ producto.products }}" class="img-fluid gallery-img uniform-img" data-description="{{ producto.description }}">
+            <h5>{{ producto.id_category.category | capfirst }}</h5>
+            <h2>{{ producto.products | title }}</h2>
+            <h3>{{ producto.price }}</h3>
+        </div>
+    </div>
+{% endfor %}

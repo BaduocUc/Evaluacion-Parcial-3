@@ -22,6 +22,6 @@ def tienda(request):
         'Categorias': categorias,
         'categorias_seleccionadas': categorias_seleccionadas,
     }
-    return render(request, 'tienda.html', context)
+    return render(request, 'appShop/tienda.html', context)
 
 
