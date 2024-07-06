@@ -9,3 +9,8 @@ Integrantes:
 GitHub:
     https://github.com/BaduocUc/Evaluacion-Parcial-3
 
+
+admin:
+    usuario:        admin
+    contraseña:     prueba.web.03
+
