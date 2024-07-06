@@ -22,6 +22,10 @@ def tienda(request):
         'Categorias': categorias,
         'categorias_seleccionadas': categorias_seleccionadas,
     }
-    return render(request, 'appShop/tienda.html', context)
+
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return render(request, 'partials/productos.html', context)
+
+    return render(request, 'tienda.html', context)
 
 
