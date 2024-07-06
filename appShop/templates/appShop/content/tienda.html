@@ -11,7 +11,7 @@
     <title>Tienda</title>
 </head>
 <body>
-    <div class="container-fluid">
+     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
                 <div class="card" style="width: 18rem;">
@@ -20,9 +20,9 @@
                         <form id="filter-form" method="get" action="{% url 'tienda' %}">
                             {% for categoria in Categorias %}
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="categoria" value="{{ categoria }}" id="categoria-{{ categoria }}" {% if categoria in request.GET.categoria %}checked{% endif %}>
-                                    <label class="form-check-label" for="categoria-{{ categoria }}">
-                                        {{ categoria }}
+                                    <input class="form-check-input" type="checkbox" name="categoria" value="{{ categoria.category }}" id="categoria-{{ categoria.id_category }}" {% if categoria.category in categorias_seleccionadas %}checked{% endif %}>
+                                    <label class="form-check-label" for="categoria-{{ categoria.id_category }}">
+                                        {{ categoria.category }}
                                     </label>
                                 </div>
                             {% endfor %}
@@ -37,7 +37,7 @@
                         <div class="col-md-4 mb-4">
                             <div class="gallery-item">
                                 <img src="{{ producto.image.url }}" alt="{{ producto.products }}" class="img-fluid gallery-img uniform-img" data-description="{{ producto.description }}">
-                                <h5>{{ producto.id_category | capfirst }}</h5>
+                                <h5>{{ producto.id_category.category | capfirst }}</h5>
                                 <h2>{{ producto.products | title }}</h2>
                                 <h3>{{ producto.price }}</h3>
                             </div>
