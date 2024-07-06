@@ -8,4 +8,20 @@ def index(request):
     context = {"Productos":Productos}
     return render(request, 'appShop/index.html', context)
 
+def tienda(request):
+    categorias_seleccionadas = request.GET.getlist('categoria')
+    if categorias_seleccionadas:
+        productos = Product.objects.filter(id_category__category__in=categorias_seleccionadas)
+    else:
+        productos = Product.objects.all()
+    
+    categorias = Category.objects.all()
+    
+    context = {
+        'Productos': productos,
+        'Categorias': categorias,
+        'categorias_seleccionadas': categorias_seleccionadas,
+    }
+    return render(request, 'tienda.html', context)
+
 
