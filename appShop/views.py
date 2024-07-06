@@ -3,10 +3,8 @@ from .models import Category, Product, Foundation
 
 # Create your views here.
 
-def index(request):
-    Productos = Product.objects.all()  
-    context = {"Productos":Productos}
-    return render(request, 'appShop/index.html', context)
+def index(request):   
+    return render(request, 'appShop/index.html')
 
 def tienda(request):
     categorias_seleccionadas = request.GET.getlist('categoria')
@@ -22,10 +20,15 @@ def tienda(request):
         'Categorias': categorias,
         'categorias_seleccionadas': categorias_seleccionadas,
     }
+    return render(request, 'appShop/tienda.html', context)
 
-    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-        return render(request, 'partials/productos.html', context)
+def nosotros(request):
+    return render(request, 'appShop/nosotros.html')
 
-    return render(request, 'tienda.html', context)
+def donaciones(request):
+    return render(request, 'appShop/donaciones.html')
+
+def contacto(request):
+    return render(request, 'appShop/contacto.html')
 
 
