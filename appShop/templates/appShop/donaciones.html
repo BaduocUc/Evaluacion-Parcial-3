@@ -1,8 +1,56 @@
-{% extends 'appShop/base.html'%}
+{% extends 'appShop/base.html' %}
 {% load static %}
 {% block title %}Donaciones{% endblock %}
 
-
 {% block contenido %}
+<header class="header">
+    <h1>Organizaciones sin fines de lucro</h1>
+</header>
+<div class="container-fluid pt-3">
+    <div class="row" id="fundaciones-container">
+        {% for fundacion in Fundaciones %}
+        <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center">
+            <div class="gallery-item-f">
+                <img src="{{ fundacion.image.url }}" alt="{{ fundacion.foundations }}" class="img-fluid gallery-img uniform-img" 
+                data-description="{{ fundacion.description }}" data-link="{{ fundacion.link }}">
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
-{% endblock %}    
+<!-- Modal para la imagen ampliada -->
+<div class="modal fade" id="fundacionesModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="fundacionesModalLabel">Título de la Imagen</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="modalImage" src="" alt="" class="img-fluid uniform-size">
+                <p id="modalDescription" class="mt-3"></p>
+                <a id="modalLink" href="#" class="btn btn-primary" target="_blank">Visitar Fundación</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.gallery-img').on('click', function() {
+            var imgSrc = $(this).attr('src');
+            var imgDescription = $(this).data('description');
+            var imgLink = $(this).data('link');
+
+            $('#modalImage').attr('src', imgSrc);
+            $('#modalDescription').text(imgDescription);
+            $('#modalLink').attr('href', imgLink);
+
+            $('#fundacionesModal').modal('show');
+        });
+    });
+</script>
+
+
+{% endblock %}
