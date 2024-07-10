@@ -37,14 +37,4 @@ def donaciones(request):
 def contacto(request):
     return render(request, 'appShop/contacto.html')
 
-def crudFundacion(request):
-    fundacion = Foundation.objects.all()
-    context = {'fundacion': fundacion}
-    return render(request, 'appShop/CRUD/Foundation/list.html', context)
-
-def crudProduct(request):
-    producto = Product.objects.all()
-    context = {'producto': producto}
-    return render(request, 'appShop/CRUD/Product/list.html', context)
-    
 

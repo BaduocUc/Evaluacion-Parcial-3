@@ -10,7 +10,5 @@ urlpatterns = [
     path('nosotros/', views.nosotros, name='nosotros'),
     path('donaciones/', views.donaciones, name='donaciones'),
     path('contacto/', views.contacto, name='contacto'),
-    path('crudFundacion', views.crudFundacion, name='crudFundacion'),
-    path('crudProduct', views.crudProduct, name='crudProduct')
 ]
 
