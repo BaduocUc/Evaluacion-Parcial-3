@@ -3,8 +3,8 @@ from .models import Category, Product, Foundation
 
 # Create your views here.
 
-def index(request):   
-    return render(request, 'appShop/index.html')
+def home(request):   
+    return render(request, 'appShop/home.html')
 
 def tienda(request):
     categorias_seleccionadas = request.GET.getlist('categoria')
@@ -26,9 +26,25 @@ def nosotros(request):
     return render(request, 'appShop/nosotros.html')
 
 def donaciones(request):
-    return render(request, 'appShop/donaciones.html')
+    fundaciones = Foundation.objects.filter(activo=True)
+    
+    context = {
+        'Fundaciones': fundaciones
+    }
+    
+    return render(request, 'appShop/donaciones.html', context)
 
 def contacto(request):
     return render(request, 'appShop/contacto.html')
 
+def crudFundacion(request):
+    fundacion = Foundation.objects.all()
+    context = {'fundacion': fundacion}
+    return render(request, 'appShop/CRUD/Foundation/list.html', context)
+
+def crudProduct(request):
+    producto = Product.objects.all()
+    context = {'producto': producto}
+    return render(request, 'appShop/CRUD/Product/list.html', context)
+    
 

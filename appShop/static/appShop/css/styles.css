@@ -1,0 +1,198 @@
+/* Estilos para validación de formularios */
+.was-validated .form-control:invalid, .was-validated .form-control:invalid:focus {
+  border-color: #dc3545;
+  box-shadow: none;
+}
+
+.was-validated .form-control:valid, .was-validated .form-control:valid:focus {
+  border-color: #28a745;
+  box-shadow: none;
+}
+
+.form-control:invalid ~ small {
+  color: #dc3545;
+}
+
+input[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+body {
+  background-image: url("../assets/Index/fondo.png");
+  background-color: rgb(255, 254, 204);
+  background-repeat: repeat;
+  background-size: 300px 300px;
+}
+
+.figure img {
+  width: 30%;
+  height: auto;
+}
+
+.navbar {
+  background-color: rgb(8, 212, 248);
+}
+
+.navbar-logo {
+  display: inline-block;
+  vertical-align: middle;
+  width: 70px;
+}
+
+.navbar-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.navbar .nav-link {
+  background-color: rgb(8, 212, 248);
+}
+
+.navbar .nav-link:hover {
+  background-color: rgb(0, 130, 190);
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+.uniform-size {
+  max-height: 500px; /* Ajusta esta altura según sea necesario */
+  width: auto;
+}
+
+footer {
+  text-align: center;
+  background-color: transparent;
+  padding: 20px;
+}
+
+.creador img {
+  display: block;
+  margin: 0 auto 10px;
+  width: 150px; /* Ajusta el tamaño según sea necesario */
+  height: auto;
+}
+
+.creador p {
+  margin: 10px 0;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  max-width: 400px;
+  margin: 50px auto 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+#mensajeRegistro {
+  text-align: center;
+  display: none;
+  margin-top: 20px;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.product {
+  width: calc(25% - 20px);
+  margin: 20px 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.uniform-size {
+  width: 100%;
+  height: auto;
+  max-height: 700px; /* Ajusta este valor según sea necesario */
+  object-fit: cover;
+}
+
+.uniform-img {
+  width: 100%;
+  height: auto; /* Ajusta esta altura según sea necesario */
+  object-fit: cover;
+}
+
+#category-filter .list-group-item {
+  cursor: pointer;
+}
+
+#category-filter .list-group-item:hover,
+#category-filter .list-group-item.active {
+  background-color: #007bff;
+  color: white;
+}
