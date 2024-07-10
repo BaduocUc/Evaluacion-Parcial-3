@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/appShop/css/styles.css' %}" >
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title></title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'home' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'nosotros' %}">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'tienda' %}">Tienda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'donaciones' %}">Donaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'contacto' %}">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div id="content">
+            {% block contenido %}
+            {% endblock %}    
+        </div>
+      </div>
+    <footer>
+        <footer>
+            <div class="marcas">
+                <img src="img/footer/apple.png" alt="apple" style="width: 30px;">
+                <img src="img/footer/lenovo.png" alt="lenovo">
+                <img src="img/footer/microsoft.png" alt="microsoft">
+                <img src="img/footer/samsung.png" alt="samsung">
+                <img src="img/footer/xiaomi.png" alt="xiaomi">
+            </div>
+            <div class="logo_footer">
+                <img src="img/tecnomarketpngicono.png" alt="logo">
+            </div>
+        </footer>
+    </footer>
+</body>
+</html>
