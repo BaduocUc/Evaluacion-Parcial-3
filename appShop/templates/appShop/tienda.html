@@ -1,5 +1,6 @@
 {% extends 'appShop/base.html'%}
 {% load static %}
+{% block title %}Tienda{% endblock %}
 
 
 {% block contenido %}
@@ -12,7 +13,8 @@
                     <form id="filter-form" method="get" action="{% url 'tienda' %}">
                         {% for categoria in Categorias %}
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="categoria" value="{{ categoria.category }}" id="categoria-{{ categoria.id_category }}" {% if categoria.category in categorias_seleccionadas %}checked{% endif %}>
+                                <input class="form-check-input" type="checkbox" name="categoria" value="{{ categoria.category }}" 
+                                id="categoria-{{ categoria.id_category }}" {% if categoria.category in categorias_seleccionadas %}checked{% endif %}>
                                 <label class="form-check-label" for="categoria-{{ categoria.id_category }}">
                                     {{ categoria.category }}
                                 </label>

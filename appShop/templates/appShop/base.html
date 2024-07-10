@@ -9,7 +9,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static '/appShop/css/styles.css' %}" >
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <title></title>
+    <title>{% block title %}Mi Sitio{% endblock %}</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -44,20 +44,9 @@
             {% block contenido %}
             {% endblock %}    
         </div>
-      </div>
-    <footer>
-        <footer>
-            <div class="marcas">
-                <img src="img/footer/apple.png" alt="apple" style="width: 30px;">
-                <img src="img/footer/lenovo.png" alt="lenovo">
-                <img src="img/footer/microsoft.png" alt="microsoft">
-                <img src="img/footer/samsung.png" alt="samsung">
-                <img src="img/footer/xiaomi.png" alt="xiaomi">
-            </div>
-            <div class="logo_footer">
-                <img src="img/tecnomarketpngicono.png" alt="logo">
-            </div>
-        </footer>
+    </div>
+    <footer class="footer">
+        <p>Mensaje en el footer que siempre está al fondo de la página</p>
     </footer>
 </body>
 </html>
