@@ -1,6 +1,6 @@
 from django.shortcuts import render # type: ignore
 from .models import Category, Product, Foundation
-from .forms import ContactoForm
+from .forms import ContactoForm, ProductoForm
 
 # Create your views here.
 
@@ -52,3 +52,21 @@ def contacto(request):
         'mensaje': mensaje,
     }
     return render(request, 'appShop/contacto.html', context)
+
+def add_producto(request):
+    if request.method == 'POST':
+        formulario = ProductoForm(request.POST,request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            mensaje = "Producto Guardado"
+        else:
+            mensaje = "Error al Guardar el Producto"
+    else:
+        formulario = ProductoForm()
+        mensaje = ""
+
+    context = {
+        'form': formulario,
+        'mensaje': mensaje,
+    }
+    return render(request, 'appShop/producto/agregar.html',context)
