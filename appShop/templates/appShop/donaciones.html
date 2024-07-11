@@ -3,10 +3,11 @@
 {% block title %}Donaciones{% endblock %}
 
 {% block contenido %}
-<header class="header">
-    <h1>Organizaciones sin fines de lucro</h1>
-</header>
-<div class="container-fluid pt-3">
+
+<div class="container-fluid bg-light bg-opacity-75">
+    <header class="header">
+        <h1>Organizaciones sin fines de lucro</h1>
+    </header>
     <div class="row" id="fundaciones-container">
         {% for fundacion in Fundaciones %}
         <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center">
