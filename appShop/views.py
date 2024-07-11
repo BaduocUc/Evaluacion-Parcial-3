@@ -1,5 +1,6 @@
 from django.shortcuts import render # type: ignore
 from .models import Category, Product, Foundation
+from .forms import ContactoForm
 
 # Create your views here.
 
@@ -35,6 +36,19 @@ def donaciones(request):
     return render(request, 'appShop/donaciones.html', context)
 
 def contacto(request):
-    return render(request, 'appShop/contacto.html')
+    if request.method == 'POST':
+        formulario = ContactoForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            mensaje = "Gracias por contactarnos  n/ Nos comunicaremos con usted a la brevedad."
+        else:
+            mensaje = "Error en el formulario. Por favor, corrige los errores."
+    else:
+        formulario = ContactoForm()
+        mensaje = ""
 
-
+    context = {
+        'form': formulario,
+        'mensaje': mensaje,
+    }
+    return render(request, 'appShop/contacto.html', context)

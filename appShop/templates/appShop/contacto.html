@@ -5,4 +5,20 @@
 
 {% block contenido %}
 
+
+<div class="container-fluid bg-light bg-opacity-75">
+    <header class="header">
+        <h2>Contactanos!</h2>
+    </header>
+    <form action="" class="formulario_contacto bg-light" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <br>
+        <button type="submit" id="btnEnviar" class="btn btn-primary mt-3">Enviar</button>
+    </form>
+    {% if mensaje %}
+        <div class="alert alert-info mt-3">{{ mensaje }}</div>
+    {% endif %}
+</div>
+
 {% endblock %}    
