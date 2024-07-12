@@ -1,10 +1,9 @@
 {% extends 'appShop/base.html'%}
 {% load static %}
-{% block title %}Contacto{% endblock %}
+{% block title %}Registro de Usuario{% endblock %}
 
 
 {% block contenido %}
-
 
 <div class="container-fluid bg-light bg-opacity-75">
     <br><br>
@@ -13,21 +12,18 @@
             <div class="card">
                 <div class="card-body d-flex flex-column">
                     <header class="header">
-                        <h2>Contactanos!</h2>
+                        <h2>Registro de Usuario</h2>
                     </header>
                     <hr>
                     <form action="" class="formulario_contacto bg-light" method="post">
                         {% csrf_token %}
                         {{ form }}
                         <br>
-                        <button type="submit" id="btnEnviar" class="btn btn-primary mt-3">Enviar</button>
+                        <input type="submit" value="Registrar">
                     </form>              
                 </div>
             </div>            
         </div>
     </div>    
 </div>
-
-
-
-{% endblock %}    
+{% endblock %}   

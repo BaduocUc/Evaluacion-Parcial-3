@@ -18,6 +18,7 @@ urlpatterns = [
     path('listar-fundacion/', views.list_donaciones, name='list_donaciones'),
     path('modificar-fundacion/<id_foundation>/', views.modify_donaciones, name='modify_donaciones'),
     path('eliminar-fundacion/<id_foundation>/', views.delete_donaciones, name='delete_donaciones'),
+    path('registro/', views.registro, name='registro'),
     
 ]
 

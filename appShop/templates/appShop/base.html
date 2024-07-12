@@ -20,7 +20,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto me-auto">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{% url 'home' %}">Inicio</a>
                     </li>
@@ -35,7 +35,50 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{% url 'contacto' %}">Contacto</a>
-                    </li>
+                    </li>                    
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Agregar
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {% if perms.appShop.add_product %}
+                                    <li><a class="dropdown-item" href="{% url 'add_producto' %}">Agregar Producto</a></li>
+                                {%endif%}
+                                {% if perms.appShop.add_foundation %}
+                                    <li><a class="dropdown-item" href="{% url 'add_donaciones' %}">Agregar Fundaciones</a></li>
+                                {%endif%}
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownList" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Listar
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownList">
+                                {% if perms.appShop.view_product %}
+                                    <li><a class="dropdown-item" href="{% url 'list_producto' %}">Lista Producto</a></li>
+                                {%endif%}
+                                {% if perms.appShop.view_foundation %}
+                                    <li><a class="dropdown-item" href="{% url 'list_donaciones' %}">Lista Fundaciones</a></li>
+                                {%endif%}
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="">@{{user.username}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{% url 'logout' %}">Cerrar Sesión</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{% url 'login' %}">Iniciar Sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{% url 'registro' %}">Registrate</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -60,7 +103,7 @@
                     {% endfor %}                                            
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
                 </div>
             </div>
         </div>
