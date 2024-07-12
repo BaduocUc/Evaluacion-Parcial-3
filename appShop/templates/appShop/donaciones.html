@@ -38,22 +38,4 @@
         </div>
     </div>
 </div>
-
-<script>
-    $(document).ready(function() {
-        $('.gallery-img').on('click', function() {
-            var imgSrc = $(this).attr('src');
-            var imgDescription = $(this).data('description');
-            var imgLink = $(this).data('link');
-
-            $('#modalImage').attr('src', imgSrc);
-            $('#modalDescription').text(imgDescription);
-            $('#modalLink').attr('href', imgLink);
-
-            $('#fundacionesModal').modal('show');
-        });
-    });
-</script>
-
-
 {% endblock %}

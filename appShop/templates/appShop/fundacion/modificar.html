@@ -19,14 +19,11 @@
                         <br>
                         <hr>
                         <div class="d-flex justify-content-end">
-                            <input type="reset" value="cancelar" class="btn btn-secondary">
+                            <a class="btn btn-secondary" type="reset" href="{% url 'list_donaciones'%}" role="button">cancelar</a>
                             &nbsp;
                             <input type="submit" value="Editar" class="btn btn-primary">
                         </div>                        
                     </form>
-                    {% if mensaje %}
-                        <div class="alert alert-info mt-3">{{ mensaje }}</div>
-                    {% endif %} 
                 </div>
             </div>        
         </div>

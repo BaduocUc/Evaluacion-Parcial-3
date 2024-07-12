@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404# type: ignore
+from django.shortcuts import render, redirect, get_object_or_404 # type: ignore
 from .models import Category, Product, Foundation
 from .forms import ContactoForm, ProductoForm, FundacionForm
+from django.contrib import messages # type: ignore
 
 # Create your views here.
 
@@ -63,17 +64,15 @@ def add_producto(request):
         formulario = ProductoForm(request.POST,request.FILES)
         if formulario.is_valid():
             formulario.save()
-            mensaje = "Producto Guardado"
+            messages.success(request,"Modificado Correctamente")
             return redirect(to="list_producto")
         else:
-            mensaje = "Error al Guardar el Producto"
+            messages.error(request,"Error al Guardar")
     else:
         formulario = ProductoForm()
-        mensaje = ""
 
     context = {
         'form': formulario,
-        'mensaje': mensaje,
     }
     return render(request, 'appShop/producto/agregar.html',context)
 
@@ -92,16 +91,14 @@ def modify_producto(request, id_product):
         formulario = ProductoForm(request.POST,request.FILES,instance=productos)
         if formulario.is_valid():
             formulario.save()
-            mensaje = "Producto Modificado"
+            messages.success(request,"Modificado Correctamente")
             return redirect(to="list_producto")
         else:
-            mensaje = "Error al Modificar el Producto"
+            messages.error(request,"Error al Modificar")
     else:
         formulario = ProductoForm(instance=productos)
-        mensaje = ""
     context = {
         'form': formulario,
-        'mensaje': mensaje,
     }
     return render(request, 'appShop/producto/modificar.html',context)
 
@@ -117,17 +114,15 @@ def add_donaciones(request):
         formulario = FundacionForm(request.POST,request.FILES)
         if formulario.is_valid():
             formulario.save()
-            mensaje = "Fundacion Guardada"
+            messages.success(request,"Guardado Correctamente")
             return redirect(to="list_donaciones")
         else:
-            mensaje = "Error al Guardar la Fundacion"
+            messages.error(request,"Error al Guardar")
     else:
         formulario = FundacionForm()
-        mensaje = ""
 
     context = {
         'form': formulario,
-        'mensaje': mensaje,
     }
     return render(request, 'appShop/fundacion/agregar.html',context)
 
@@ -146,16 +141,14 @@ def modify_donaciones(request, id_foundation):
         formulario = FundacionForm(request.POST,request.FILES,instance=donaciones)
         if formulario.is_valid():
             formulario.save()
-            mensaje = "Fundacion Modificado"
+            messages.success(request,"Modificado Correctamente")
             return redirect(to="list_donaciones")
         else:
-            mensaje = "Error al Modificar la fundacion"
+            messages.error(request,"Error al Modificar")
     else:
         formulario = FundacionForm(instance=donaciones)
-        mensaje = ""
     context = {
         'form': formulario,
-        'mensaje': mensaje,
     }
     return render(request, 'appShop/fundacion/modificar.html',context)
 
