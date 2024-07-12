@@ -1,6 +1,6 @@
 {% extends 'appShop/base.html'%}
 {% load static %}
-{% block title %}Listar Productos{% endblock %}
+{% block title %}Listar Fundaciones{% endblock %}
 
 {% block contenido %}
 <div class="container-fluid bg-light bg-opacity-75">
@@ -15,25 +15,23 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Precio</th>
-                <th scope="col">Categoria</th>
+                <th scope="col">link</th>
                 <th scope="col">Habilitado</th>
                 <th scope="col">Acciones</th>
               </tr>
             </thead>
             <tbody>
-                {% for producto in Productos %}
+                {% for fundacion in donaciones %}
                 <tr>
-                    <th scope="row">{{ producto.id_product }}</th>
-                    <td>{{ producto.products }}</td>
-                    <td>{{ producto.price }}</td>
-                    <td>{{ producto.id_category }}</td>
-                    <td>{{ producto.activo }}</td>
+                    <th scope="row">{{ fundacion.id_foundation }}</th>
+                    <td>{{ fundacion.foundations }}</td>
+                    <td>{{ fundacion.link }}</td>
+                    <td>{{ fundacion.activo }}</td>
                     <td>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <a class="btn btn-warning btn-sm" href="{% url 'modify_producto' producto.id_product %}" role="button">Modificar</a>
+                            <a class="btn btn-warning btn-sm" href="{% url 'modify_donaciones' fundacion.id_foundation %}" role="button">Modificar</a>
                             &nbsp;
-                            <a class="btn btn-danger btn-sm" href="{% url 'delete_producto' producto.id_product %}" role="button">Eliminar</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'delete_donaciones' fundacion.id_foundation %}" role="button">Eliminar</a>
                         </div>       
                     </td>
                 </tr>

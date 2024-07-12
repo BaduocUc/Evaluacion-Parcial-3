@@ -12,7 +12,7 @@
     <hr>
     <div class="row" id="fundaciones-container">
         {% for fundacion in Fundaciones %}
-        <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center">
+        <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center" id="col-fundaciones">
             <div class="gallery-item-f">
                 <img src="{{ fundacion.image.url }}" alt="{{ fundacion.foundations }}" class="img-fluid gallery-img uniform-img" 
                 data-description="{{ fundacion.description }}" data-link="{{ fundacion.link }}">

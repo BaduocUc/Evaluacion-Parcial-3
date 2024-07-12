@@ -1,12 +1,12 @@
 {% extends 'appShop/base.html'%}
 {% load static %}
-{% block title %}Modificar Productos{% endblock %}
+{% block title %}Agregar Fundaciones{% endblock %}
 
 {% block contenido %}
 <div class="container-fluid bg-light bg-opacity-75">
     <br><br>
     <header class="header">
-        <h1>Modificar</h1>
+        <h1>Agregar</h1>
     </header>
     <hr>
     <div class="row">
@@ -21,7 +21,7 @@
                         <div class="d-flex justify-content-end">
                             <input type="reset" value="cancelar" class="btn btn-secondary">
                             &nbsp;
-                            <input type="submit" value="Editar" class="btn btn-primary">
+                            <input type="submit" value="Guardar" class="btn btn-primary">
                         </div>                        
                     </form>
                     {% if mensaje %}
@@ -32,5 +32,6 @@
         </div>
     </div>
 </div>
+
 
 {% endblock %}    
