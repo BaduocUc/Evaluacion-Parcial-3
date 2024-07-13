@@ -17,9 +17,4 @@ $(document).ready(function() {
 
       $('#fundacionesModal').modal('show');
   });
-
-  if (document.getElementById('messageModal')) {
-      var myModal = new bootstrap.Modal(document.getElementById('messageModal'));
-      myModal.show();
-  }
 });
