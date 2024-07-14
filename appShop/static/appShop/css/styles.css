@@ -38,8 +38,9 @@ body {
 /*FOOTER*/
 
 
-form {
-  max-width: 400px;
+#formulario_contacto {
+  max-width: 700px;
+  width: 600px;
   margin: 50px auto 20px;
   padding: 20px;
   border: 1px solid #ccc;

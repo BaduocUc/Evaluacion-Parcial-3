@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'appShop',
     'colorfield',
     'django.contrib.humanize',
+    'bootstrap5',
 ]
 
 X_FRAME_OPTIONS='SAMEORIGIN' #only if django version >= 3.0
@@ -59,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'tienda.urls'
